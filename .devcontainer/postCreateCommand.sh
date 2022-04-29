@@ -1,12 +1,15 @@
-#!/bin/bash
+#!/bin/sh
 
-start_pwd=${PWD}
+initial_dir=${PWD}
 
 # dotfiles
-git clone https://github.com/ktman-ktman/dotfiles.git ~/
+git clone https://github.com/ktman-ktman/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install_vscode.sh
-cd ${start_pwd}
+cd ${initial_dir}
 
 # poetry
-poetry install
+if [[ ! -f "./.venv" ]] && [[ -f "./poetry.lock" ]]
+then
+	poetry install
+fi
