@@ -4,7 +4,10 @@
         "dockerfile": "Dockerfile",
         "context": "..",
         "args": {
-            "VARIANT": "3.10.4-bullseye",
+            "VARIANT": "latest",
+            "USERNAME": "vscode",
+            "USE_UID": "1000",
+            "USE_GID": "1000",
         }
     },
     "settings": {
@@ -21,5 +24,6 @@
         "ms-python.python",
         "VisualStudioExptTeam.vscodeintellicode"
     ],
+    "remoteUser": "vscode",
     "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
 }
