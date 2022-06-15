@@ -5,7 +5,7 @@ initial_dir=${PWD}
 # dotfiles
 git clone https://github.com/ktman-ktman/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-./install_vscode.sh
+sh ./install_vscode.sh
 cd ${initial_dir}
 
 # poetry

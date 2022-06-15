@@ -1,5 +1,5 @@
 {
-    "name": "python-devcontainer-template",
+    "name": "sqlalchemy_tutorial",
     "build": {
         "dockerfile": "Dockerfile",
         "context": "..",

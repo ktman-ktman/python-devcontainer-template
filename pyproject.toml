@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "sqlalchemy_tutorial"
+version = "0.1.0"
+description = ""
+authors = ["ktman-ktman <ktym.disk.mobile.note@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+ipykernel = "^6.13.0"
+SQLAlchemy = "^1.4.37"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+mypy = "^0.960"
+isort = "^5.10.1"
+flake8 = "^4.0.1"
+pytest = "^7.1.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
