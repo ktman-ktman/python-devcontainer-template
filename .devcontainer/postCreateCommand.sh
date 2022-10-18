@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 initial_dir=${PWD}
 
