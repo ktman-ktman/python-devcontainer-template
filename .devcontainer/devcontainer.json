@@ -6,25 +6,30 @@
         "args": {
             "VARIANT": "latest",
             "USERNAME": "vscode",
-            "USE_UID": "1000",
-            "USE_GID": "1000",
+            "USER_UID": "1000",
+            "USER_GID": "1000",
         }
     },
-    "settings": {
-        "terminal.integrated.profiles.linux": {
-            "bash": {
-                "path": "/bin/bash",
-                "args": [
-                    "-l"
-                ]
-            }
-        }
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash",
+                        "args": [
+                            "-l"
+                        ]
+                    }
+                }
+            },
+            "extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"oderwat.indent-rainbow"
+			],
+        },
     },
-    "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "VisualStudioExptTeam.vscodeintellicode"
-    ],
     "remoteUser": "vscode",
     "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
 }
