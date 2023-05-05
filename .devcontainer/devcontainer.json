@@ -2,7 +2,7 @@
     "name": "python-devcontainer-template",
     "build": {
         "dockerfile": "Dockerfile",
-        "context": "..",
+        "context": ".",
         "args": {
             "VARIANT": "latest",
             "USERNAME": "vscode",
@@ -23,11 +23,11 @@
                 }
             },
             "extensions": [
-				"ms-python.python",
-				"ms-python.vscode-pylance",
-				"VisualStudioExptTeam.vscodeintellicode",
-				"oderwat.indent-rainbow"
-			],
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "oderwat.indent-rainbow"
+            ],
         },
     },
     "remoteUser": "vscode",
