@@ -1,15 +1,22 @@
 ARG VARIANT="latest"
 
-FROM python:${VARIANT}
+FROM nvidia/cuda:${VARIANT}
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
+    && apt-get install -y --no-install-recommends software-properties-common \
+    && add-apt-repository ppa:deadsnakes/ppa \
+    && apt-get update \
     && apt-get install -y --no-install-recommends \
     curl \
     fish \
     git \
     htop \
+    python3.11 \
+    python3.11-dev \
+    python3.11-venv \
+    sudo \
     tmux \
     wget \
     && apt-get -y clean \
@@ -20,7 +27,7 @@ ENV POETRY_HOME="/opt/poetry" \
     POETRY_VIRTUALENVS_IN_PROJECT=true \
     POETRY_NO_INTERACTION=1 
 
-RUN curl -sSL https://install.python-poetry.org | python3 -
+RUN curl -sSL https://install.python-poetry.org | python3.11 -
 
 # user
 ARG USERNAME="vscode"
