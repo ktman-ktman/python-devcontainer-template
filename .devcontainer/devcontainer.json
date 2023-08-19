@@ -22,12 +22,6 @@
                     }
                 }
             },
-            "extensions": [
-                "ms-python.python",
-                "ms-python.vscode-pylance",
-                "VisualStudioExptTeam.vscodeintellicode",
-                "oderwat.indent-rainbow"
-            ],
         },
     },
     "remoteUser": "vscode",

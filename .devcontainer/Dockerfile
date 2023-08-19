@@ -9,7 +9,9 @@ RUN apt-get update \
     curl \
     fish \
     git \
+    git-lfs \
     htop \
+    sudo \
     tmux \
     wget \
     && apt-get -y clean \
