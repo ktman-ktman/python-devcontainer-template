@@ -24,6 +24,10 @@
             },
         },
     },
+    "mounts": [
+		"source=vscode-extensions,target=/home/vscode/.vscode-server/extensions,type=volume"
+		"source=vscode-extensions-insider,target=/home/vscode/.vscode-server-insider/extensions,type=volume"
+	],
     "remoteUser": "vscode",
     "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
 }
