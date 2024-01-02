@@ -16,9 +16,7 @@
     "visualstudioexptteam.vscodeintellicode",
     "ms-python.python",
     "ms-toolsai.jupyter",
-    "ms-python.black-formatter",
-    "ms-python.isort",
-    "ms-python.flake8",
-    "ms-python.mypy-type-checker"
+    "ms-python.mypy-type-checker",
+    "charliermarsh.ruff",
   ]
 }
