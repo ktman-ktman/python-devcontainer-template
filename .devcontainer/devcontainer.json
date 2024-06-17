@@ -4,7 +4,7 @@
         "dockerfile": "Dockerfile",
         "context": ".",
         "args": {
-            "VARIANT": "latest",
+            "VARIANT": "stable-slim",
             "USERNAME": "vscode",
             "USER_UID": "1000",
             "USER_GID": "1000",
@@ -26,7 +26,7 @@
     },
     "mounts": [
 		"source=vscode-extensions,target=/home/vscode/.vscode-server/extensions,type=volume",
-		"source=vscode-extensions-insider,target=/home/vscode/.vscode-server-insider/extensions,type=volume",
+		"source=vscode-extensions-insiders,target=/home/vscode/.vscode-server-insiders/extensions,type=volume",
 	],
     // "runArgs": [
     //     "--gpus",

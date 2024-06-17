@@ -1,11 +1,12 @@
-ARG VARIANT="latest"
+ARG VARIANT="stable-slim"
 
-FROM python:${VARIANT}
+FROM debian:${VARIANT}
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+    ca-certificates \
     curl \
     fish \
     git \
@@ -16,13 +17,6 @@ RUN apt-get update \
     wget \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/*
-
-# install poetry
-ENV POETRY_HOME="/opt/poetry" \
-    POETRY_VIRTUALENVS_IN_PROJECT=true \
-    POETRY_NO_INTERACTION=1 
-
-RUN curl -sSL https://install.python-poetry.org | python3 -
 
 # user
 ARG USERNAME="vscode"
@@ -40,5 +34,12 @@ RUN mkdir -p /home/${USERNAME}/.vscode-server/extensions \
     && chown -R ${USERNAME} \
         /home/${USERNAME}/.vscode-server \
         /home/${USERNAME}/.vscode-server-insiders
+
+# install rye
+USER ${USERNAME}
+
+RUN curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" bash
+
+ENV PATH="$RYE_HOME/shims:$PATH"
 
 CMD ["/bin/bash"]
