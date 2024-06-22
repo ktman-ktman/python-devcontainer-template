@@ -9,7 +9,7 @@ sh ./install_vscode.sh
 cd ${initial_dir}
 
 # poetry
-if [[ ! -f "./.venv" ]] && [[ -f "./poetry.lock" ]]
-then
-	poetry install
-fi
+# if [[ ! -f "./.venv" ]] && [[ -f "./poetry.lock" ]]
+# then
+# 	poetry install
+# fi
