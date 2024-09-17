@@ -4,10 +4,10 @@
         "dockerfile": "Dockerfile",
         "context": ".",
         "args": {
-            "VARIANT": "latest",
+            "VARIANT": "24.04",
             "USERNAME": "vscode",
-            "USER_UID": "1000",
-            "USER_GID": "1000",
+            "USER_UID": "1111",
+            "USER_GID": "1111",
         }
     },
     "customizations": {

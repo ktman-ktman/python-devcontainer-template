@@ -1,11 +1,12 @@
 ARG VARIANT="latest"
 
-FROM python:${VARIANT}
+FROM ubuntu:${VARIANT}
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
+    ca-certificates \
     curl \
     fish \
     git \
@@ -17,16 +18,9 @@ RUN apt-get update \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/*
 
-# install poetry
-ENV POETRY_HOME="/opt/poetry" \
-    POETRY_VIRTUALENVS_IN_PROJECT=true \
-    POETRY_NO_INTERACTION=1 
-
-RUN curl -sSL https://install.python-poetry.org | python3 -
-
 # user
 ARG USERNAME="vscode"
-ARG USER_UID="1000"
+ARG USER_UID="1111"
 ARG USER_GID=${USER_UID}
 
 RUN groupadd --gid ${USER_GID} ${USERNAME} \
@@ -40,5 +34,9 @@ RUN mkdir -p /home/${USERNAME}/.vscode-server/extensions \
     && chown -R ${USERNAME} \
         /home/${USERNAME}/.vscode-server \
         /home/${USERNAME}/.vscode-server-insiders
+
+# install uv
+USER ${USERNAME}
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 CMD ["/bin/bash"]
